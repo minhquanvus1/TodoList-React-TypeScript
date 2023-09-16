@@ -16,15 +16,19 @@ function App() {
   ]);
 
   const addTodo = (description, assigned) => {
+    let rowNumber = 0;
     if (todos.length > 0) {
-      const newToDo = {
-        rowNumber: todos[todos.length - 1].rowNumber + 1,
-        rowDescription: description,
-        rowAssigned: assigned,
-      };
-      setTodos((todos) => [...todos, newToDo]);
-      console.log("Todo List: ", todos);
+      rowNumber = todos[todos.length - 1].rowNumber + 1;
+    } else {
+      rowNumber = 1;
     }
+    const newToDo = {
+      rowNumber: rowNumber,
+      rowDescription: description,
+      rowAssigned: assigned,
+    };
+    setTodos((todos) => [...todos, newToDo]);
+    console.log("Todo List: ", todos);
   };
   return (
     <div className="mt-5 container">
