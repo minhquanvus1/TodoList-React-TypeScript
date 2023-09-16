@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function NewTodoForm(props) {
+function NewTodoForm(props: { addTodo: Function }) {
   const [description, setDescription] = useState("");
   const [assigned, setAssigned] = useState("");
   //   const descriptionChange = (event) => {
@@ -7,7 +7,7 @@ function NewTodoForm(props) {
   //     setDescription(event.target.value);
   //   };
 
-  const assignedChange = (event) => {
+  const assignedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("assigned ", event.target.value);
     setAssigned(event.target.value);
   };
